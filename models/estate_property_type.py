@@ -7,11 +7,8 @@ class EstatePropertyType(models.Model):
     name = fields.Char(string="Type Name", required=True)
     property_ids = fields.One2many('estate.property', 'property_type_id', string="Properties")
     sequence = fields.Integer('Sequence', default=1)
-    #property_ids = fields.Many2one('estate.property', string="Properties")
-    # property_type_id = fields.Char(string="Property Type", required=True)
-    # buyer_id = fields.Many2one('estate.property', string="Buyer")
-    # seller_id = fields.Many2one('estate.property', string="Seller")
-
+    offer_ids = fields.One2many(related='property_ids.offer_ids', string='Offers', readonly=True)
+    offer_count = fields.Integer(string='Offer Count', compute='_compute_offer_count')
     #SQL constraint
     _sql_constraints = [
         ('name_unique', 'UNIQUE(name)', 'The property type name must be unique.')
@@ -24,3 +21,10 @@ class EstatePropertyType(models.Model):
     #         existing_type = self.search([('name', '=', record.name), ('id', '!=', record.id)])
     #         if existing_type:
     #             raise exceptions.ValidationError("The property type name must be unique.")
+    @api.depends('property_ids.offer_ids')
+    def _compute_offer_count(self):
+        for record in self:
+            offer_count = 0
+            for property in record.property_ids:
+                offer_count += len(property.offer_ids)
+            record.offer_count = offer_count            
