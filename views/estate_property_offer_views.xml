@@ -19,7 +19,7 @@
         <field name="name">estate.property.offer.list</field>
         <field name="model">estate.property.offer</field>
         <field name="arch" type="xml">
-            <list>
+            <list editable="bottom">
                 <field name="price"></field>
                 <field name="partner_id"></field>
                 <field name="validity"></field>
