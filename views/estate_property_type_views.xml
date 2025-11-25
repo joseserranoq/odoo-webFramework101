@@ -11,14 +11,36 @@
         <field name="model">estate.property.type</field>
         <field name="arch" type="xml">
             <form>
+
                 <sheet>
+                    <!-- I want the button in the right corner with a dollar icon-->
+                    <!-- <button type="action" name="%(estate_property_offer_action)d" 
+                    class="oe_stat_button" icon="fa-dollar" help="View Offers" position="before">
+                        <div class="o_field_widget o_stat_info o_stat_clickable">
+                            <span class="o_stat_value o_field_number o_field_integer">
+                                <field name="offer_count"/>
+                            </span>
+                            <span class="o_stat_text o_field_number o_field_integer"> Offers</span>
+                        </div>
+                    </button> -->
+                    <div class="oe_button_box" name="button_box">
+                        <button type="action" name="%(estate_property_offer_action)d"
+                            class="oe_stat_button" icon="fa-dollar">
+                            <div class="o_field_widget o_stat_info">
+                                <span class="o_stat_value">
+                                    <field name="offer_count" />
+                                </span>
+                                <span class="o_stat_text">Offers</span>
+                            </div>
+                        </button>
+                    </div>
                     <h1 class="oe_title">
                         <field name="name"></field>
                     </h1>
                     <notebook>
                         <page string="Properties">
                             <field name="sequence" widget="handle"></field>
-                            <field name="property_ids" >
+                            <field name="property_ids">
                                 <list>
                                     <field name="name"></field>
                                     <field name="expected_price"></field>
