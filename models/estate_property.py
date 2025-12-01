@@ -94,3 +94,13 @@ class EstateProperty(models.Model):
                 raise exceptions.UserError("Sold properties cannot be canceled.")
             record.state = 'canceled'
         return True
+# API model
+#It is very important to always call super() to avoid breaking the flow. 
+# There are only a few very specific cases where you don’t want to call it.
+    @api.model
+    def ondelete(self):
+        for record in self:
+            if record.state not in ['new', 'canceled']:
+                raise exceptions.UserError("Only new or canceled properties can be deleted.")
+        return super(EstateProperty, self).ondelete()
+    
