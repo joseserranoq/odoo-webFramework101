@@ -1,0 +1,23 @@
+<odoo>
+    <record id="estate_property_users_action" model="ir.actions.act_window">
+        <field name="name">Estate Property Users</field>
+        <field name="res_model">estate.property.users</field>
+        <field name="view_mode">form</field>
+        <!-- Genera un filtro por default en la barra de búsqueda-->
+    </record>
+
+    <record id="estate_property_users_view_form" model="ir.ui.view">
+        <field name="name">estate.property.users.form</field>
+        <field name="model">estate.property.users</field>
+        <field name="arch" type="xml">
+            <form string="Users">
+                <sheet>
+                    <group>
+                        <field name="user_id"/>
+                        <field name="property_ids"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>
