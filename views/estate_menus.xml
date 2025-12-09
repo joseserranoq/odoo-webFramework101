@@ -7,10 +7,6 @@
         <menuitem id="second_level_menu" name="Settings">
             <menuitem id="estate_property_menu_type_action" action="estate_property_type_action" name="Property Types"></menuitem>
             <menuitem id="estate_property_menu_tag_action" action="estate_property_tag_action" name="Property Tags"></menuitem>
-            <!-- 
-            -->
-            <menuitem id="estate_property_menu_users_action" action="estate_property_users_action" name="Users and Companies"></menuitem>            
-
         </menuitem>               
     </menuitem>
 

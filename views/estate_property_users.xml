@@ -1,10 +1,4 @@
 <odoo>
-    <record id="estate_property_users_action" model="ir.actions.act_window">
-        <field name="name">Estate Property Users</field>
-        <field name="res_model">res.users</field>
-        <field name="view_mode">list,form</field>
-    </record>
-
     <record id="view_users_form_inherit_estate" model="ir.ui.view">
         <field name="name">res.users.form.inherit.estate</field>
         <field name="model">res.users</field>
@@ -17,9 +11,11 @@
                             <field name="name"/>
                             <field name="property_type_id"/>
                             <field name="postcode"/>
+                            <field name="tag_ids"/>
                             <field name="bedrooms"/>
                             <field name="living_area"/>
                             <field name="expected_price"/>
+                            <field name="selling_price"/>
                         </list>
                     </field>
                 </page>
